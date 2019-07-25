@@ -45,6 +45,10 @@ export class Ide {
         await this.driverHelper.waitVisibility(notificationLocator, timeout);
     }
 
+    async sleep(timeout: number) {
+        await this.driverHelper.wait(timeout);
+    }
+
     async waitNotificationAndConfirm(notificationText: string, timeout: number = TestConstants.TS_SELENIUM_DEFAULT_TIMEOUT) {
         await this.waitNotification(notificationText, timeout);
         await this.clickOnNotificationButton(notificationText, 'yes');
