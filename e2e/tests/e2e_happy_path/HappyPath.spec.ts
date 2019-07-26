@@ -90,6 +90,7 @@ suite('Validation of workspace start, build and run', async () => {
     });
 
     test('Check the running application', async () => {
+        ide.sleep(30000);
         await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator, 60000, 10000);
     });
 
@@ -188,7 +189,7 @@ suite('Display source code changes in the running application', async () => {
     });
 
     test('Check changes are displayed', async () => {
-        ide.sleep(20000);
+        ide.sleep(30000);
         await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator, 60000, 10000);
         await previewWidget.waitAndSwitchToWidgetFrame();
         await previewWidget.waitAndClick(SpringAppLocators.springMenuButtonLocator);
@@ -227,7 +228,7 @@ suite('Validation of debug functionality', async () => {
     });
 
     test('Check content of the launched application', async () => {
-        ide.sleep(20000);
+        ide.sleep(30000);
         await previewWidget.waitContentAvailable(SpringAppLocators.springErrorMessageLocator, 60000, 10000);
     });
 
