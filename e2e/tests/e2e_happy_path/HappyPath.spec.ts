@@ -225,7 +225,7 @@ suite('Validation of debug functionality', async () => {
     });
 
     test('Check content of the launched application', async () => {
-        // ide.sleep(30000);
+        ide.sleep(30000);
         await previewWidget.waitContentAvailable(SpringAppLocators.springErrorMessageLocator, 60000, 10000);
     });
 
