@@ -219,7 +219,7 @@ suite('Validation of debug functionality', async () => {
 
     test('Launch debug', async () => {
         await runTask('che: run-debug');
-        ide.sleep(20000);
+        // ide.sleep(20000);
         await ide.waitNotificationAndConfirm('A new process is now listening on port 8080', 120000);
         await ide.waitNotificationAndOpenLink('Redirect is now enabled on port 8080', 120000);
     });
