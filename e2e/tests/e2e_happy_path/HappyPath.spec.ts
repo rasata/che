@@ -178,7 +178,7 @@ suite('Display source code changes in the running application', async () => {
     test('Run application with changes', async () => {
         await runTask('che: run-with-changes');
 
-        // ide.sleep(20000);
+        ide.sleep(20000);
 
         await ide.waitNotificationAndConfirm('A new process is now listening on port 8080', 120000);
         await ide.waitNotificationAndOpenLink('Redirect is now enabled on port 8080', 120000);
