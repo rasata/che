@@ -185,7 +185,13 @@ suite('Display source code changes in the running application', async () => {
     });
 
     test('Check changes are displayed', async () => {
-        await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator, 60000, 10000);
+        try{
+        await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator);
+        }
+        catch(e){
+            driverHelper.getDriver().sleep(10000);
+            await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator);
+        }
         await previewWidget.waitAndSwitchToWidgetFrame();
         await previewWidget.waitAndClick(SpringAppLocators.springMenuButtonLocator);
         await previewWidget.waitAndClick(SpringAppLocators.springErrorButtonLocator);

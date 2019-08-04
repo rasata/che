@@ -45,10 +45,9 @@ export class PreviewWidget {
             if (isApplicationTitleVisible) {
                 await this.driverHelper.getDriver().switchTo().defaultContent();
                 await this.ide.waitAndSwitchToIdeFrame();
-
                 return true;
             }
-
+            
             await this.switchBackToIdeFrame();
             await this.refreshPage();
             await this.waitAndSwitchToWidgetFrame();
