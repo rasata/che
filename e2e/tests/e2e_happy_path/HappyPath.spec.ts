@@ -189,7 +189,8 @@ suite('Display source code changes in the running application', async () => {
         await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator);
         }
         catch(e){
-            driverHelper.getDriver().sleep(10000);
+            console.log(">>>>>>>>>>>>>>>>>>in the catch block")
+            driverHelper.getDriver().sleep(20000);
             await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator);
         }
         await previewWidget.waitAndSwitchToWidgetFrame();
