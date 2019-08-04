@@ -222,7 +222,23 @@ suite('Validation of debug functionality', async () => {
     });
 
     test('Check content of the launched application', async () => {
-        await previewWidget.waitContentAvailable(SpringAppLocators.springErrorMessageLocator, 60000, 10000);
+       try{
+           await previewWidget.waitContentAvailable(SpringAppLocators.springErrorMessageLocator, 60000, 10000);
+          }
+          catch (e){
+            await driverHelper.getDriver().navigate().to('chrome://settings/content/popups');
+            const testReportDirPath: string = './report';
+                    const screenshotFileName: string = 'chrome-settings.png';
+            if (!fs.existsSync(testReportDirPath)) {
+              await fs.mkdirSync(testReportDirPath);
+                    }
+                  // take screenshot and write to file
+                  const screenshot: string = await driverHelper.getDriver().takeScreenshot();
+                  const screenshotStream = fs.createWriteStream(testReportDirPath +"/"+screenshotFileName);
+                  screenshotStream.write(new Buffer(screenshot, 'base64'));
+                  screenshotStream.end();
+                  await driverHelper.navigateToUrl(workspaceUrl);   
+          }
     });
 
     test('Open debug configuration file', async () => {
