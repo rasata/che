@@ -186,6 +186,8 @@ suite('Display source code changes in the running application', async () => {
 
     test('Check changes are displayed', async () => {
         try{
+            console.log(">>>>>>>>>>>>>>>>>>sleep 20s")
+            driverHelper.getDriver().sleep(20000);
         await previewWidget.waitContentAvailable(SpringAppLocators.springTitleLocator);
         }
         catch(e){
